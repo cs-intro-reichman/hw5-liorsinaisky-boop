@@ -52,9 +52,9 @@ public class Wordle {
     // guesses[2][3] // 'L'
     // guesses[2][4] // 'O'
     public static void storeGuess(String guess, char[][] guesses, int row) {
-        for (int i = 0 ; i<guesses[row].length ; i++){
+        for (int i = 0; i < guesses[row].length; i++) {
             guesses[row][i] = guess.charAt(i);
-     }
+        }
     }
 
     // Prints the game board up to currentRow (inclusive).
@@ -76,13 +76,13 @@ public class Wordle {
 
     // Returns true if all entries in resultRow are 'G'.
     public static boolean isAllGreen(char[] resultRow) {
-        int count = 0 ;
-        for (int i = 0 ; i<resultRow.length ; i++){
-            if (resultRow[i] == 'G'){
+        int count = 0;
+        for (int i = 0; i < resultRow.length; i++) {
+            if (resultRow[i] == 'G') {
                 count++;
             }
         }
-        if (count==resultRow.length){
+        if (count == resultRow.length) {
             return true;
         }
         return false;
@@ -101,11 +101,11 @@ public class Wordle {
 
         // Prepare 2D arrays for guesses and results
         char[][] guesses
-                = // ...
-                char[][] results
-                = // ...
-                // Prepare to read from the standart input 
-                In inp = new In();
+                = new char[6][5];
+        char[][] results
+                = new char[6][5];
+        // Prepare to read from the standart input 
+        In inp = new In();
 
         int attempt = 0;
         boolean won = false;
@@ -119,11 +119,11 @@ public class Wordle {
             while (!valid) {
                 System.out.print("Enter your guess (5-letter word): ");
                 guess
-                        = // ... read from the standrad input
-                
-                if (/* ... check if the guess is valid */) {
+                        = inp.readLine();
+
+                if (guess.length() != 5) {
                     System.out.println("Invalid word. Please try again.");
-                } else {
+                } else if (guess.length() == 5) {
                     valid = true;
                 }
             }
