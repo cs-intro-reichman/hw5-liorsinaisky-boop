@@ -128,10 +128,10 @@ public class Wordle {
                 }
             }
 
-            // Store guess and compute feedback
-            // ... use storeGuess and computeFeedback
-            // Print board
+            storeGuess(guess, guesses, attempt);
+            computeFeedback(secret, guess, results[attempt]);
             printBoard(guesses, results, attempt);
+            
 
             // Check win
             if (isAllGreen(results[attempt])) {
